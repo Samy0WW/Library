@@ -1,10 +1,106 @@
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: #F7F0F5;
+}
+.header
+{
+    grid-column: 1/3;
+    padding: 12px;
+    font-size: 72px;
+    color: #F7F0F5;
+    background-color: #433633;
+}
+.container
+{
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+
+
+}
+.form
+{
+    background-color: #8F857D;
+    box-shadow: 0 10px  10px -10px gray;
+    padding: 12px;
+
+}
 .book-container
 {
+    border: 5px solid brown;
     display: flex;
+    gap: 10px;
     justify-content: center;
-    gap: 30px;
+    flex-wrap: wrap;
+    background-color: #5C5552;
+ 
+}
+.card
+{
+    background-color: #5C5552;
+    padding: 10px;
+    flex: auto;
+    font-size: 1.5rem;
+    text-align: center;
 }
 .book-info
 {
 
+}
+.input-fields
+{
+    display: flex;
+    gap: 50px;
+ 
+}
+input
+{
+    border: 1px solid #DECBB7 ;
+    border-radius: 4px;
+    padding: 6px;
+    font-size: large;
+    background-color: #DECBB7;
+}
+
+.form-box
+{
+   
+}
+
+label
+{
+    font-size: 14px;
+    display: block;
+    color: #333;
+    text-shadow: 1px;
+}
+.field-column
+{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+input:invalid
+{
+    border: 2px solid red
+}
+input:focus
+{
+    outline: none;
+    border: 1px solid blue;
+    box-shadow: 3px 3px 5px;
+    
+}
+
+button
+{
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    background-color:#5C5552 ;
+    border: #596D48;
+    padding: 12px 40px;
+    border-radius: 5px;
 }
