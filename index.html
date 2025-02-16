@@ -10,7 +10,7 @@
 <body>
     <div class="container">
         <div class="header">Library</div>
-        <div class="form">
+        <form class="form">
  
                 <div class="form-content">
                     <div class="input-fields">
@@ -19,7 +19,7 @@
                             <input type="text" name="title" id="title" >
                 
                             <label for="numberOfPages">NUMBER OF PAGES</label>
-                            <input type="numberOfPages" name="numberOfPages" id="numberOfPages">
+                            <input type="tel" name="numberOfPages" id="numberOfPages">
                 
 
                 
@@ -28,9 +28,14 @@
                             <label for="author">AUTHOR</label>
                             <input type="text" id="author">
                 
-                            <label for="phone-number">READ OR NOT</label>
-                            <input type="tel" name="number" id="phone-number">
-                
+                            <div>
+                                Have you read the book 
+                                <label for="read">Yes</label>
+                                <input type="radio" name="read" id="read" value=yes>
+                                
+                                <label for="read">No</label>
+                                <input type="radio" name="read" id="notRead" value=no>
+                            </div>
 
                         </div>
                 
@@ -39,10 +44,10 @@
             </div>
             <div class="submission">
                 <br><br>
-                <button type="submit">Add Book</button>
+                <button type="submit" id="submit">Add Book</button>
                 <br><br>
 
-            </div>
+            </form>
     </div>
     <div class="book-container"></div>
 </div>
