@@ -1,5 +1,6 @@
 const myLibrary = [];
 
+
 function Book(title, author, numberOfPages, read) {
   // the constructor...
     this.title=title;
@@ -34,44 +35,50 @@ submit.addEventListener("click",(Event)=>{
     let title = document.querySelector("#title").value;
     let author = document.querySelector("#author").value;
     let numberOfPages = document.querySelector("#numberOfPages").value;
+    let read = document.querySelector('input[name="read"]:checked').value;
+    console.log(read);
 
- 
-        let read = document.querySelector("#read").value;
-    
-
-    
-    console.log(title);
-
-    console.log(author);
-    console.log(numberOfPages);
-    
-    
-    
-    
-    myLibrary[myLibrary.length]= new Book(title, author, numberOfPages,read)
+    myLibrary[myLibrary.length]= new Book(title, author, numberOfPages,read);
     console.log(myLibrary);
     
 
         const book = myLibrary[myLibrary.length-1];
         const card = document.createElement("div");
-        card.classList.add("card");
-        book_container.appendChild(card);
         const book_info = document.createElement("div");
+        const remove = document.createElement("button");
+
+        remove.textContent="Remove Book";
+
+        card.classList.add("card");
         book_info.classList.add("book-info");
-    
+
+        
+        remove.classList.add("remove");
+        remove.addEventListener("click",()=>{
+            let index = myLibrary.indexOf(book);
+            if (index>-1) {
+                myLibrary.splice(index,1);
+                console.log(myLibrary);
+                card.remove();
+            }
+        })
+        book_container.appendChild(card);
         card.appendChild(book_info);
-    
+        card.appendChild(remove);
+        
         for (const key in book) {
     
             if (book.hasOwnProperty(key)) {
                 const element = book[key];  
                 const div = document.createElement("div");
                 if (element=="yes") {
-                    div.textContent="read"
+                    div.textContent="read";
+                    div.style.color="green";
                 }
                 else if (element=="no")
                 {
-                    div.textContent="not read yet"
+                    div.textContent="not read yet";
+                    div.style.color="red";
                 }
                 else
                 {
@@ -88,31 +95,77 @@ submit.addEventListener("click",(Event)=>{
 for (let index = 0; index < myLibrary.length; index++) {
     const book = myLibrary[index];
     const card = document.createElement("div");
-    card.classList.add("card");
-    book_container.appendChild(card);
     const book_info = document.createElement("div");
-    book_info.classList.add("book-info");
+    const remove = document.createElement("button");
+ 
 
+    remove.textContent="Remove Book";
+
+
+    card.classList.add("card");
+    book_info.classList.add("book-info");
+    remove.classList.add("remove");
+
+    remove.addEventListener("click", ()=>{
+        let index = myLibrary.indexOf(book);
+        if (index>-1) {
+            myLibrary.splice(index,1);
+            console.log(myLibrary);
+            card.remove();
+        }
+    })
+
+
+
+
+    book_container.appendChild(card);
     card.appendChild(book_info);
+    card.appendChild(remove);
+   
+    const toggleReadButton = document.createElement("button");
+    toggleReadButton.textContent="gg";
+    card.appendChild(toggleReadButton);
 
     for (const key in book) {
 
         if (book.hasOwnProperty(key)) {
             const element = book[key];  
             const div = document.createElement("div");
+
+            
             if (element=="yes") {
-                div.textContent="read"
+                div.textContent="read";
+                div.style.color="green";
+
             }
             else if (element=="no")
             {
-                div.textContent="not read yet"
+                div.textContent="not read yet";
+                div.style.color="red";
             }
             else
             {
                 div.textContent = element;
             }
 
+            toggleReadButton.addEventListener("click", ()=>{
+                if (book.read="yes") {
+                    book.read="no";
+                    console.log(myLibrary);
+                    
+                }
+                else if (book.read="no"){
+                    book.read="yes";
+console.log(myLibrary);
+
+                }
+            })
             book_info.appendChild(div);
+
+
+
         }
     }
+
+    
 }
