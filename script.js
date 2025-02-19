@@ -64,7 +64,7 @@ submit.addEventListener("click",(Event)=>{
         })
         book_container.appendChild(card);
         card.appendChild(book_info);
-        card.appendChild(remove);
+   
         
         for (const key in book) {
     
@@ -74,11 +74,13 @@ submit.addEventListener("click",(Event)=>{
                 if (element=="yes") {
                     div.textContent="read";
                     div.style.color="green";
+                    div.classList.add("read-or-not");
                 }
                 else if (element=="no")
                 {
                     div.textContent="not read yet";
                     div.style.color="red";
+                    div.classList.add("read-or-not");
                 }
                 else
                 {
@@ -88,8 +90,33 @@ submit.addEventListener("click",(Event)=>{
                 book_info.appendChild(div);
             }
         }
+    const readStatus = card.querySelector(".read-or-not");
+    const toggleReadButton = document.createElement("button");
+    toggleReadButton.textContent="Toggle Read";
     
+    if (book.read=="yes") {
+        toggleReadButton.style.backgroundColor="#FF4500";
+    }
+    else if (book.read=="no") {
+        toggleReadButton.style.backgroundColor="green";
+    }
 
+    toggleReadButton.addEventListener("click", ()=>{
+        if (book.read=="yes") {
+            book.read="no";
+            toggleReadButton.style.backgroundColor="green";
+            readStatus.textContent="Not read yet";
+            readStatus.style.color="red";
+        }
+        else if (book.read=="no"){
+            book.read="yes";
+            toggleReadButton.style.backgroundColor="#FF4500";
+            readStatus.textContent="read";
+            readStatus.style.color="green";
+        }
+    })
+    card.appendChild(toggleReadButton);
+    card.appendChild(remove);
 })
 
 for (let index = 0; index < myLibrary.length; index++) {
@@ -120,11 +147,8 @@ for (let index = 0; index < myLibrary.length; index++) {
 
     book_container.appendChild(card);
     card.appendChild(book_info);
-    card.appendChild(remove);
+  
    
-    const toggleReadButton = document.createElement("button");
-    toggleReadButton.textContent="gg";
-    card.appendChild(toggleReadButton);
 
     for (const key in book) {
 
@@ -136,30 +160,21 @@ for (let index = 0; index < myLibrary.length; index++) {
             if (element=="yes") {
                 div.textContent="read";
                 div.style.color="green";
+                div.classList.add("read-or-not");
 
             }
             else if (element=="no")
             {
                 div.textContent="not read yet";
                 div.style.color="red";
+                div.classList.add("read-or-not");
             }
             else
             {
                 div.textContent = element;
             }
 
-            toggleReadButton.addEventListener("click", ()=>{
-                if (book.read="yes") {
-                    book.read="no";
-                    console.log(myLibrary);
-                    
-                }
-                else if (book.read="no"){
-                    book.read="yes";
-console.log(myLibrary);
 
-                }
-            })
             book_info.appendChild(div);
 
 
@@ -167,5 +182,32 @@ console.log(myLibrary);
         }
     }
 
+    const readStatus = card.querySelector(".read-or-not");
+    const toggleReadButton = document.createElement("button");
     
+    if (book.read=="yes") {
+        toggleReadButton.style.backgroundColor="#FF4500";
+    }
+    else if (book.read=="no") {
+        toggleReadButton.style.backgroundColor="green";
+    }
+    toggleReadButton.textContent="Toggle Read";
+    
+    toggleReadButton.addEventListener("click", ()=>{
+        if (book.read=="yes") {
+            book.read="no";
+            toggleReadButton.style.backgroundColor="green";
+            readStatus.textContent="Not read yet";
+            readStatus.style.color="red";
+        }
+        else if (book.read=="no"){
+            book.read="yes";
+            toggleReadButton.style.backgroundColor="#FF4500";
+            readStatus.textContent="read";
+            readStatus.style.color="green";
+            
+        }
+    })
+    card.appendChild(toggleReadButton);
+    card.appendChild(remove);
 }

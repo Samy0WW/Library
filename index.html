@@ -28,13 +28,15 @@
                             <label for="author">AUTHOR</label>
                             <input type="text" id="author">
                 
-                            <div>
-                                Have you read the book ?
-                                <label for="read">yes</label>
-                                <input type="radio" name="read" id="read" value="yes">
-                                
-                                <label for="read">no</label>
-                                <input type="radio" name="read" id="notRead" value="no">
+                            <div style="display: flex; flex-direction: column; gap: 10px;">
+                                <span style="color: #333; font-size: 18px;">HAVE YOU READ THE BOOK ?</span>
+                                <div style="display: flex; gap: 10px;" >
+                                    <label for="read">YES</label>
+                                    <input type="radio" name="read" id="read" value="yes">
+                                    
+                                    <label for="read">NO</label>
+                                    <input type="radio" name="read" id="notRead" value="no">
+                                </div>
                             </div>
 
                         </div>

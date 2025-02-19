@@ -11,43 +11,53 @@
     padding: 12px;
     font-size: 72px;
     color: #F7F0F5;
-    background-color: #433633;
+    background-color: #A31621;
 }
 .container
 {
     display: grid;
     grid-template-columns: 1fr 2fr;
-
+    grid-template-rows: 1fr 7.1fr;
 
 }
 .form
 {
-    background-color: #8F857D;
+    background-color: #FCF7F8;
     box-shadow: 0 10px  10px -10px gray;
     padding: 12px;
-
+    display: grid;
+    grid-template-rows: 150px 100px;
 }
 .book-container
 {
-    border: 5px solid brown;
+    padding: 30px;
     display: flex;
-    gap: 10px;
+    gap: 40px;
     justify-content: center;
     flex-wrap: wrap;
-    background-color: #5C5552;
+    background-color: #2B303A;
  
 }
+
 .card
 {
-    background-color: #5C5552;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+    background-color: #1E1E24;
     padding: 10px;
-    flex: auto;
+    flex: 0 1 350px;
     font-size: 1.5rem;
     text-align: center;
+
+    border-radius: 10px;
 }
 .book-info
 {
-
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
 }
 .input-fields
 {
@@ -57,21 +67,17 @@
 }
 input
 {
-    border: 1px solid #DECBB7 ;
+    border: 1px solid #CED3DC ;
     border-radius: 4px;
     padding: 6px;
     font-size: large;
-    background-color: #DECBB7;
+    background-color: #CED3DC;
 }
 
-.form-box
-{
-   
-}
 
 label
 {
-    font-size: 14px;
+    font-size: 18px;
     display: block;
     color: #333;
     text-shadow: 1px;
@@ -96,11 +102,19 @@ input:focus
 
 button
 {
-    color: white;
+    color: #333;
     font-weight: bold;
     font-size: 16px;
-    background-color:#5C5552 ;
+    background-color:#CED3DC ;
     border: #596D48;
     padding: 12px 40px;
     border-radius: 5px;
+}
+.remove
+{
+    background-color: red;
+}
+.submission
+{
+    justify-self: center;
 }
